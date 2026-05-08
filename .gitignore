@@ -15,3 +15,6 @@ app/ThirdParty/**/vendor/
 writable/*
 !writable/.htaccess
 *.log
+
+# standalone plugins
+/plugins/Siamesa_gerencial_plugin/

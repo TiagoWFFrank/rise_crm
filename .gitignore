@@ -18,3 +18,4 @@ writable/*
 
 # standalone plugins
 /plugins/Siamesa_gerencial_plugin/
+/plugins/Bombeiros/

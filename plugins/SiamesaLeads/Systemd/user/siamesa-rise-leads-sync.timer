@@ -1,0 +1,12 @@
+[Unit]
+Description=Run SIAMESA IARA to Rise lead mirror every 2 minutes
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=2min
+AccuracySec=15s
+Persistent=true
+Unit=siamesa-rise-leads-sync.service
+
+[Install]
+WantedBy=timers.target

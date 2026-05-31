@@ -389,8 +389,8 @@ $(document).ready(function () {
     });
 
 
-    var color = getCookie("theme_color");
-    if (color == "1E202D") {
+    var color = getCookie("theme_color") || AppHelper.settings.defaultThemeColor;
+    if (color == "1E202D" || color == "21293C") {
         $(".g-recaptcha").attr("data-theme", "dark");
     }
 
@@ -1303,8 +1303,8 @@ var initTinyMCE = function ($instance) {
     options.directionality = $(document).attr("dir") == "rtl" ? "rtl" : "ltr";
 
     var contentStyle = 'body { color: #4e5e6a; }';
-    if ($("body").attr("data-color") == "1E202D") {
-        contentStyle = 'body { color: #898fa9; }';
+    if ($("body").attr("data-color") == "1E202D" || $("body").attr("data-color") == "21293C") {
+        contentStyle = 'body { color: #EFE4D6; background-color: #151A28; }';
     }
 
     var settings = $.extend({}, {
@@ -1526,6 +1526,10 @@ function getCookie(cname) {
 
 function setThemeColor() {
     var color = getCookie("theme_color") || AppHelper.settings.defaultThemeColor;
+    if (color === "1E202D") {
+        color = "21293C";
+        setCookie("theme_color", color);
+    }
     if (color && color !== "F2F2F2") {
         var href = AppHelper.assetsDirectory + "css/color/" + color + ".css";
         $("#custom-theme-color").remove();

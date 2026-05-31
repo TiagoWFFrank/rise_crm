@@ -8,7 +8,7 @@ use CodeIgniter\Router\RouteCollection;
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Dashboard::index');
+$routes->get('/', 'Root_redirect::index');
 
 //custom routing for custom pages
 //this route will move 'about/any-text' to 'domain.com/about/index/any-text'
@@ -61,4 +61,9 @@ $routes->post("Updates/(:any)", "Updates::$1");
  */
 if (is_file(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php')) {
     require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
+}
+
+$siamesa_gerencial_plugin_routes = ROOTPATH . 'plugins/Siamesa_gerencial_plugin/Config/Routes.php';
+if (is_file($siamesa_gerencial_plugin_routes)) {
+    require $siamesa_gerencial_plugin_routes;
 }

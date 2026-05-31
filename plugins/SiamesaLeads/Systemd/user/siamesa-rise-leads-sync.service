@@ -1,0 +1,8 @@
+[Unit]
+Description=Mirror SIAMESA leads from IARA capture database to Rise CRM
+After=default.target
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/apps/rise/current
+ExecStart=/opt/apps/rise/current/plugins/SiamesaLeads/Scripts/import_iara_to_rise.sh

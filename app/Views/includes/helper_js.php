@@ -68,6 +68,20 @@ $custom_filters = unserialize($custom_filters);
     AppHelper.csrfTokenName = "<?php echo $csrf_token_name; ?>";
     AppHelper.csrfHash = "<?php echo $csrf_hash; ?>";
 
+    (function () {
+        var name = "theme_color=";
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.indexOf(name) === 0 && cookie.substring(name.length) === "1E202D") {
+                var expires = new Date();
+                expires.setTime(expires.getTime() + (1000 * 24 * 60 * 60 * 1000));
+                document.cookie = "theme_color=21293C;expires=" + expires.toUTCString() + ";path=/";
+                break;
+            }
+        }
+    })();
+
     AppHelper.uploadPastedImageLink = "<?php echo get_uri("upload_pasted_image/save"); ?>";
     AppHelper.uploadMaxFileSize = "<?php echo echo_escaped_value($max_filesize); ?>";
     AppHelper.appVersion = "<?php echo get_setting("app_version"); ?>";
